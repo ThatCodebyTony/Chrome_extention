@@ -11,6 +11,11 @@ saveInputEl.addEventListener("click", function() {
 
 for (let item of myLeads) {
     ulEl.innerHTML += "<li>" + item + "</li>";
-    //container.innerHTML = "<button>Buy!</button>"
+    
 
 }
+// container.innerHTML = "<button>Buy!</button>"
+// container.addEventListener("click", function(){
+//     container.innerHTML += "<li>Thank you for buying!</li>"
+    
+// })
