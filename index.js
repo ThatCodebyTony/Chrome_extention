@@ -4,10 +4,10 @@ const saveInputEl = document.getElementById('input-btn');
 const ulEl = document.getElementById("ul-el");
 const container = document.getElementById("container");
 
-container.innerHTML = "<button onclick='buy()'>Buy!</button>"
+container.innerHTML = "<button id = \"button2\" onclick='buy()'>Buy!</button>"
 
 function buy(){
-    container.innerHTML = "<p>Thank you for buying!</p>"
+    container.innerHTML += "<p>Thank you for buying!</p>"
 }
 
 saveInputEl.addEventListener("click", function() {
