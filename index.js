@@ -55,32 +55,51 @@
 // }
 
 
-function subscribeToSong() {
+// function subscribeToSong() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const isSuccessful = Math.random() > 0.3;
+//             if (isSuccessful) {
+//                 resolve("The has has been released!");
+//                 } else {
+//                     reject("No release");
+//                 }
+//             }, 1000);
+//         });
+// }
+
+// subscribeToSong()
+//     .then(message => {
+//         console.log(message); // Logs: "The song has been released!"
+//         return "Sending a thank-you message to subscribers...";
+//     })
+//     .then(thankYouMessage => {
+//         console.log(thankYouMessage); // Logs: "Sending a thank-you message to subscribers..."
+//         return "All tasks completed.";
+//     })
+//     .then(finalMessage => {
+//         console.log(finalMessage); // Logs: "All tasks completed."
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     });
+    
+
+function greetUser(name) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const isSuccessful = Math.random() > 0.3;
-            if (isSuccessful) {
-                resolve("The has has been released!");
+            if (!isSuccessful) {
+                console.log(`Hello, ${name}!`);
+                resolve("How are you doing?!");
                 } else {
-                    reject("No release");
-                }
-            }, 1000);
-        });
+                reject("Rip nvm");
+            }
+        }, 2000);
+    });
 }
 
-subscribeToSong()
+greetUser("Doug")
     .then(message => {
-        console.log(message); // Logs: "The song has been released!"
-        return "Sending a thank-you message to subscribers...";
+        console.log(message);
     })
-    .then(thankYouMessage => {
-        console.log(thankYouMessage); // Logs: "Sending a thank-you message to subscribers..."
-        return "All tasks completed.";
-    })
-    .then(finalMessage => {
-        console.log(finalMessage); // Logs: "All tasks completed."
-    })
-    .catch(error => {
-        console.error(error);
-    });
-    
