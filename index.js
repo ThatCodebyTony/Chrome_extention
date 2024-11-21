@@ -116,6 +116,8 @@ helloUser("Alice", (message3) => {
     console.log(message3); // Logs the message from the callback
 });
 
+
+// Without arrow function
 function helloUser(name, callback) {
     console.log(`Hello, ${name}!`); // Logs "Hello, Alice!"
     const message = `It's great to see you, ${name}!`; // Creates a message
