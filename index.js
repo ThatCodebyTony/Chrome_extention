@@ -106,10 +106,27 @@ greetUser("Doug")
     })
 
 function helloUser(name, callback) {
-    console.log(`Greetings, ${name}!`);
-    callback();
+    console.log(`Hello, ${name}!`);
+    const message2 = `It's great to see you, ${name}!`;
+    callback(message2); // Pass the message to the callback
 }
 
-helloUser("Alice", () => {
-    console.log("You down for some games?");
+helloUser("Alice", (message3) => {
+    console.log("You down for some games Alice??");
+    console.log(message3); // Logs the message from the callback
 });
+
+function helloUser(name, callback) {
+    console.log(`Hello, ${name}!`); // Logs "Hello, Alice!"
+    const message = `It's great to see you, ${name}!`; // Creates a message
+    callback(message); // Executes the callback, passing `message`
+}
+
+// Using the callback with a regular function
+function followUp(message3) {
+    console.log("You down for some games Alice??"); // Logs additional message
+    console.log(message3); // Logs "It's great to see you, Alice!"
+}
+
+// Call the function and pass `followUp` as the callback
+helloUser("Alice", followUp);
