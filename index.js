@@ -11,9 +11,8 @@ function buy(){
 }
 
 saveInputEl.addEventListener("click", function() {
-    // saveInputEl.textContent = "Button Clicked!";
-    // console.log("Button Clicked!");
     myLeads.push(inputEl.value);
+    inputEl.value = ""; // Clear the input field
     renderLeads();
 })
 
@@ -26,3 +25,15 @@ function renderLeads() {
     }
     ulEl.innerHTML = listeItems;
 }
+
+function subscribeToSong() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("The song has been released!");
+      }, 3000); 
+    });
+  }
+  
+  subscribeToSong().then(message =>{
+    console.log(message);
+  })
