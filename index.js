@@ -86,6 +86,7 @@
     
 
 function greetUser(name) {
+    console.log("Greeting user...");
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const isSuccessful = Math.random() > 0.3;
@@ -103,3 +104,12 @@ greetUser("Doug")
     .then(message => {
         console.log(message);
     })
+
+function helloUser(name, callback) {
+    console.log(`Greetings, ${name}!`);
+    callback();
+}
+
+helloUser("Alice", () => {
+    console.log("You down for some games?");
+});
