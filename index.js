@@ -1,34 +1,28 @@
-// Promisified delay function
-function delay(time, message) {
+
+
+function delayPromise(message, delay) {
     return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(message); // Resolving with the message after the delay
-        }, time);
-    });
-}
-
-// Using the promisified delay function
-delay(1000, "Delay complete!")
-    .then((message) => {
-        console.log("Promise resolved:", message);
-    })
-    .catch((error) => {
-        console.error("Promise rejected with:", error);
-    });
-
-function rely(time, message) {
-    return new Promise((resolve)=> {
         setTimeout(()=> {
             resolve(message);
-        }, time);
+        },delay);
     });
 }
 
+function setDelay() {
+    return delayPromise("First Promise",1000)
+        .then((result)=> {
+            console.log(result);
+            return delayPromise("Second Promise",2000)
+        })
+        .then((result)=> {
+            console.log(result);
+            return delayPromise("Third Promise",3000)
+        })
+        .then((result)=> {
+            console.log(result);
+        })
+        .catch((error)=> {
+            console.error("Error:".error)
+        })
+}
 
-rely(1000,"Delay Complete!")
-    .then((message)=> {
-        console.log("Promise resolved:", message);
-    })
-    .catch((error)=> {
-        console.error("Promise rejected with:", error);
-    });
