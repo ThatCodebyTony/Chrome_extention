@@ -1,27 +1,34 @@
-// Create three promises that resolve after different times
-const promise1 = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve('First promise resolved');
-    }, 1000);
-});
+// Promisified delay function
+function delay(time, message) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(message); // Resolving with the message after the delay
+        }, time);
+    });
+}
 
-const promise2 = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve('Second promise resolved');
-    }, 2000);
-});
-
-const promise3 = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve('Third promise resolved');
-    }, 3000);
-});
-
-// Use Promise.all to run the promises in parallel
-Promise.race([promise1,promise2,promise3])
+// Using the promisified delay function
+delay(1000, "Delay complete!")
     .then((message) => {
-        console.log("First resolved Promise: ", message);
+        console.log("Promise resolved:", message);
+    })
+    .catch((error) => {
+        console.error("Promise rejected with:", error);
+    });
+
+function rely(time, message) {
+    return new Promise((resolve)=> {
+        setTimeout(()=> {
+            resolve(message);
+        }, time);
+    });
+}
+
+
+rely(1000,"Delay Complete!")
+    .then((message)=> {
+        console.log("Promise resolved:", message);
     })
     .catch((error)=> {
-        console.error('Promise rejected:', error);
-    })
+        console.error("Promise rejected with:", error);
+    });
