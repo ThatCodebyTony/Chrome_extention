@@ -26,6 +26,27 @@ function executeSequentially() {
         });
 }
 
+// Execute promises sequentially using async/await
+
+async function executeSequentially() {
+    try{
+        const result1 = await delayPromise("First promise resolved",1000);
+        console.log(result1);
+
+        const result2 = await delayPromise("Second promise resolved",2000);
+        console.log(result2);
+
+        const result3 = await delayPromise("Third promise resolved", 3000);
+        console.log(result3);
+
+    } catch(error) {
+        console.error("Error",error);
+    }
+
+}
+    
+
+
 // Run the sequential execution function
 executeSequentially();
 
