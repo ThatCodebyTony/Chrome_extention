@@ -1,25 +1,54 @@
-
-
+// Function that returns a promise that resolves after a given time
 function delayPromise(message, delay) {
-    return new Promise((resolve) => {
-        setTimeout(()=> {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             resolve(message);
-        },delay);
+        }, delay);
     });
 }
 
-async function executeAsync() {
-    try {
-        const result1 = await delayPromise("First Promise done", 1000);
-        console.log(result1);
-        
-        const result2 = await delayPromise("Second Prmise done", 2000);
-        console.log(result2)
-
-        const result3 = await delayPromise("Third Promise done", 3000);
-        console.log(result3)
-    } catch(error) {
-        console.error("Error",error);
-    }
+// Execute promises sequentially
+function executeSequentially() {
+    return delayPromise('First promise resolved', 1000)
+        .then((result) => {
+            console.log(result);  // Logs after 1 second
+            return delayPromise('Second promise resolved', 2000);
+        })
+        .then((result) => {
+            console.log(result);  // Logs after 2 seconds
+            return delayPromise('Third promise resolved', 3000);
+        })
+        .then((result) => {
+            console.log(result);  // Logs after 3 seconds
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
-executeAsync();
+
+// Run the sequential execution function
+executeSequentially();
+
+
+function fetchData() {
+    fetch("https://api.example.com/data")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+
+  async function fetchData() {
+    try {
+      const response = await fetch("https://api.example.com/data");
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  
