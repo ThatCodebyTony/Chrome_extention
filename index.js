@@ -44,8 +44,7 @@ async function executeSequentially() {
     }
 
 }
-    
-
+      
 
 // Run the sequential execution function
 executeSequentially();
@@ -103,6 +102,5 @@ function fetchData() {
     container.removeChild(firstParent);
     
   });
-  
   
   
