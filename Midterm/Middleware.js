@@ -34,6 +34,12 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 
+// Middleware example
+router.use((req, res, next) => {
+  console.log('Middleware is running');
+  next();  // Move to the next handler
+});
+
 // Route that responds to GET requests on '/hello'
 router.get('/hello', (req, res) => {
   res.send('Hello, world!');
