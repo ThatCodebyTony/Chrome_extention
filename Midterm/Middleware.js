@@ -27,3 +27,22 @@ app.use('/reviews', router);
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
+
+//----------------------------------------------------------
+
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+// Route that responds to GET requests on '/hello'
+router.get('/hello', (req, res) => {
+  res.send('Hello, world!');
+});
+
+// Attach the router to the app
+app.use('/example', router);
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
