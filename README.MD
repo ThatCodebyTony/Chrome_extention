@@ -87,4 +87,68 @@ addButton.addEventListener("click", function() {
 
 Now, when you click the "Add" button, a new paragraph will be added to the page.
 
-Let me know if you're ready for the next step!
+Now, let's move on to the fourth concept: **using `Node.appendChild()` to add a child**.
+
+### 4. Using `Node.appendChild()` to Add a Child
+
+We already used `appendChild()` in the previous step to add a new element to the container. Let's focus on its specific purpose.
+
+- `appendChild()` is a method that allows you to add a new child element to an existing parent element. In the previous example, we used `container.appendChild(newParagraph)` to append the newly created `<p>` element to the container `<div>`.
+
+Let me expand on the functionality in a more detailed scenario.
+
+#### JavaScript Example:
+```javascript
+// Create a new <div> element dynamically
+const newDiv = document.createElement("div");
+
+// Create a new <h2> element and add some text
+const newHeading = document.createElement("h2");
+newHeading.textContent = "Welcome to the Page";
+
+// Append the <h2> element to the new <div>
+newDiv.appendChild(newHeading);
+
+// Append the new <div> to the container
+container.appendChild(newDiv);
+
+console.log("New div with heading added to container");
+```
+
+#### Explanation:
+- `newDiv.appendChild(newHeading)` adds the `<h2>` heading as a child of the newly created `<div>`.
+- Then, `container.appendChild(newDiv)` adds the entire `<div>` (which now contains the `<h2>`) as a child of the container `<div>`.
+  
+This demonstrates how `appendChild()` works in both contexts: adding a child to a new element (`newDiv.appendChild(newHeading)`) and adding that new element to a parent (`container.appendChild(newDiv)`).
+
+Now let's move on to the final concept: **using `Node.removeChild()` to remove a child element**.
+
+### 5. Using `Node.removeChild()` to Remove a Child
+
+The `removeChild()` method allows you to remove a child element from a parent element. Let's use this method to remove the last `<p>` element from the container when the "Remove" button is clicked.
+
+#### JavaScript Example:
+```javascript
+// Add an event listener to the Remove button
+removeButton.addEventListener("click", function() {
+    // Get the last child of the container
+    const lastChild = container.lastElementChild;
+
+    // If there is a child, remove it
+    if (lastChild) {
+        container.removeChild(lastChild);
+        console.log("Last child removed");
+    } else {
+        console.log("No child to remove");
+    }
+});
+```
+
+#### Explanation:
+- `container.lastElementChild` gets the last child element of the container `<div>`. This can be any child, such as a `<p>`, `<div>`, or other elements.
+- `container.removeChild(lastChild)` removes the last child element from the container, which effectively removes it from the DOM (the page).
+- If there are no children in the container (i.e., the container is empty), it logs "No child to remove".
+
+Now, when you click the "Remove" button, the last added element will be removed from the container.
+
+That covers all the concepts! Let me know if you'd like to go over anything again or need further assistance.
